@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context/ 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean id="emp" class="com.cg.springlabbook.beans.Employee">
+    	<property name="id" value="12345"></property>
+    	<property name="name" value="Harriet"></property>
+    	<property name="salary" value="40000.0"></property>
+    	<property name="age" value="30"></property>
+    </bean>
+    <bean id="emp2" class="com.cg.springlabbook.beans.Employee">
+    <property name="id" value="123"></property>
+    <property name="name" value="John"></property>
+    <property name="salary" value="45000.0"></property>
+    <property name="age" value="31"></property>
+    </bean>
+    <bean id="sbu" class="com.cg.springlabbook.beans.SBU" >
+     <property name="sbuId" value="1"></property>
+     <property name="sbuName" value="Product Engineering Service"></property>
+     <property name="sbuHead" value="Kiran Rao"></property>
+     <property name="EmpList">
+     	<list>
+     		<ref bean="emp"></ref>
+     		<ref bean="emp2"></ref>
+     	</list>
+     </property>
+    </bean>
+     <bean id="dao" class="com.cg.springlabbook.dao.iDAO" autowire="byName"></bean>
+    <bean id="ser" class="com.cg.springlabbook.services.iService" autowire="byName"></bean>
+   
+    
+    </beans>
